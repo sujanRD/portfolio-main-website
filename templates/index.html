@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+  <meta name="description" content="{{ d.name }} — CS Engineering Student Portfolio"/>
+  <meta name="theme-color" content="#6366F1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="Portfolio"/>
+  <link rel="manifest" href="/static/manifest.json"/>
+  <title>{{ d.name }} · Portfolio</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+
+<!-- ▌NAVBAR ▌-->
+<nav>
+  <div class="nav-in">
+    <a href="#home" class="logo">{{ d.name.split()[0] }}<span>.</span></a>
+
+    <input type="checkbox" id="nt"/>
+    <label for="nt" style="cursor:pointer">
+      <div class="hbg">
+        <span class="hbg-1"></span>
+        <span class="hbg-2"></span>
+        <span class="hbg-3"></span>
+      </div>
+    </label>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- ▌HERO ▌-->
+<section id="home">
+  <div class="wrap">
+    <div class="hero">
+
+      <div class="badge">
+        <span class="dot"></span>
+        Open to internships &amp; collaborations
+      </div>
+
+      <h1 class="h-name">
+        Hi, I'm<br>
+        <span class="grad">{{ d.name }}</span>
+      </h1>
+
+      <p class="h-tag">{{ d.tagline }}</p>
+
+      <div class="tw">$ Building the future, one commit at a time_</div>
+
+      <p class="h-desc">{{ d.about[:190] }}…</p>
+
+      <div class="btns">
+        <a href="#projects" class="btn bp">View My Work →</a>
+        <a href="#contact"  class="btn bo">Get in Touch</a>
+        <a href="{{ d.github }}" target="_blank" rel="noopener" class="btn bo">⌥ GitHub</a>
+      </div>
+
+      <div class="scroll-hint">
+        <span class="sl"></span>Scroll to explore
+      </div>
+
+    </div></div>
+    <div id="photo">
+    <img src="static/p.jpeg" width="300%" height="300%" >
+  </div>
+</section>
+
+
+<!-- ▌ABOUT ▌-->
+<section id="about">
+  <div class="wrap">
+    <div class="sh">
+      <p class="lbl">I am sujan</p>
+      <h2 class="ttl">About Me</h2>
+    </div>
+
+    <div class="about-grid">
+
+      <!-- Avatar + stats -->
+      <div>
+        <div class="av-box">
+          <span class="av-init">{{ d.initial }}</span>
+        </div>
+        <div class="stats">
+          <div class="sc">
+            <div class="sn">{{ d.projects | length }}</div>
+            <div class="sl2">Projects</div>
+          </div>
+          <div class="sc">
+            <div class="sn">{{ d.skills | length }}</div>
+            <div class="sl2">Skills</div>
+          </div>
+          <div class="sc">
+            <div class="sn">{{ d.certificates | length }}</div>
+            <div class="sl2">Certs</div>
+          </div>
+          <div class="sc">
+            <div class="sn">1<sup style="font-size:.9rem">st</sup></div>
+            <div class="sl2">Year CSE</div>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- Text -->
+      <div class="about-text">
+        <p>{{ d.about }}</p>
+        <div class="info">
+          <div class="ir"><span class="ik">College</span><span>{{ d.college }}</span></div>
+          <div class="ir"><span class="ik">Degree</span><span>{{ d.degree }}</span></div>
+          <div class="ir"><span class="ik">Email</span><a href="mailto:{{ d.email }}">{{ d.email }}</a></div>
+          <div class="ir"><span class="ik">GitHub</span><a href="{{ d.github }}" target="_blank" rel="noopener">{{ d.github.replace('https://','') }}</a></div>
+          <div class="ir"><span class="ik">LinkedIn</span><a href="{{ d.linkedin }}" target="_blank" rel="noopener">{{ d.linkedin.replace('https://','') }}</a></div>
+          <div class="ir"><span class="ik">Hackerrank</span><a href="https://www.hackerrank.com/sujanrd14" target="_blank" rel="noopener">hackerrank.com/sujanrd14</a></div>
+          <div class="ir"><span class="ik">Leetcode</span><a href="https://leetcode.com/u/sujanrd/" target="_blank" rel="noopener">leetcode.com/u/sujanrd/</a></div>
+
+        </div>
+        <div style="margin-top:1.6rem">
+          <a href="{{ d.github }}" target="_blank" rel="noopener" class="btn bp">View GitHub →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ▌SKILLS ▌-->
+<section id="skills">
+  <div class="wrap">
+    <div class="sh">
+      <p class="lbl">What I Know</p>
+      <h2 class="ttl">Skills &amp; Technologies</h2>
+      <p class="sub">Technologies I work with, organised by category.</p>
+    </div>
+
+    <div class="sk-grid">
+      {% for s in d.skills %}
+      <div class="ski">
+        <div class="sk-top">
+          <span class="sk-name">{{ s.name }}</span>
+          <span class="sk-pct">{{ s.level }}%</span>
+        </div>
+        <div class="sk-bar">
+          <div class="sk-fill" style="width:{{ s.level }}%"></div>
+        </div>
+        <div class="sk-cat">{{ s.cat }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<!-- ▌PROJECTS ▌-->
+<section id="projects">
+  <div class="wrap">
+    <div class="sh">
+      <p class="lbl">What I've Built</p>
+      <h2 class="ttl">Projects</h2>
+      <p class="sub">A collection of things I've built throughout my CS journey.</p>
+    </div>
+
+    <div class="pr-grid">
+      {% for p in d.projects %}
+      <div class="pc">
+        <div class="ph">
+          <div class="pico">{{ p.icon }}</div>
+          <span class="ps {% if p.status == 'Live' %}ps-live{% else %}ps-done{% endif %}">
+            {{ p.status }}
+          </span>
+        </div>
+        <div class="pt">{{ p.title }}</div>
+        <p class="pd">{{ p.desc }}</p>
+        <div class="techs">
+          {% for t in p.tech %}
+          <span class="tt">{{ t }}</span>
+          {% endfor %}
+        </div>
+        <div class="plinks">
+          <a href="{{ p.github }}" target="_blank" rel="noopener" class="pl">⌥ Code</a>
+          {% if p.live %}
+          <a href="{{ p.live }}" target="_blank" rel="noopener" class="pl">↗ Live</a>
+          {% endif %}
+          <span class="pl" style="margin-left:auto;cursor:default;color:var(--slate2)">{{ p.year }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<!-- ▌CERTIFICATES ▌-->
+<section id="certificates">
+  <div class="wrap">
+    <div class="sh">
+      <p class="lbl">Achievements</p>
+      <h2 class="ttl">Certificates</h2>
+      <p class="sub">Courses and certifications I've completed.</p>
+    </div>
+
+    <div class="cer-grid">
+      {% for c in d.certificates %}
+      <div class="cc">
+        <div class="ci">🏆</div>
+        <div>
+          <div class="ctitle">{{ c.title }}</div>
+          <div class="ciss">{{ c.issuer }}</div>
+          <div class="cdate">{{ c.date }}</div>
+          <a href="{{  url_for('static',filename='college_certificates.pdf') }}" target="_blank" rel="noopener" class="clink">
+            View Certificate ↗
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<!-- ▌CONTACT ▌-->
+<section id="contact">
+  <div class="wrap">
+    <div class="sh">
+      <p class="lbl">Let's Talk</p>
+      <h2 class="ttl">Get In Touch</h2>
+      <p class="sub">Have a project idea or just want to say hi? I'd love to hear from you.</p>
+    </div>
+
+    <div class="con-wrap">
+
+      <!-- Left info -->
+      <div class="con-info">
+        <h3>Let's connect!</h3>
+        <p>
+          I'm always open to new opportunities, interesting projects,
+          and conversations about tech. Feel free to reach out anytime!
+        </p>
+        <div class="con-links">
+          <a href="mailto:{{ d.email }}" class="cli">
+            <span class="clic">✉</span>{{ d.email }}
+          </a>
+          <a href="{{ d.github }}" target="_blank" rel="noopener" class="cli">
+            <span class="clic">⌥</span>GitHub
+          </a>
+          <a href="{{ d.linkedin }}" target="_blank" rel="noopener" class="cli">
+            <span class="clic">in</span>LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <!-- Right form — submits to Flask POST /contact, pure HTML -->
+      <div class="cf">
+        {% if msg %}
+        <div class="flash {% if ok %}f-ok{% else %}f-err{% endif %}">{{ msg }}</div>
+        {% endif %}
+
+        <form method="POST" action="/contact">
+          <div class="fr" style="margin-bottom:1rem">
+            <div class="fg">
+              <label for="fn">Your Name</label>
+              <input type="text" id="fn" name="name" placeholder="Sanjana RD" required/>
+            </div>
+            <div class="fg">
+              <label for="fe">Your Email</label>
+              <input type="email" id="fe" name="email" placeholder="sanjana@example.com" required/>
+            </div>
+          </div>
+          <div class="fg" style="margin-bottom:1rem">
+            <label for="fs">Subject</label>
+            <input type="text" id="fs" name="subject" placeholder="Collaboration / Internship / Just saying hi!"/>
+          </div>
+          <div class="fg" style="margin-bottom:1rem">
+            <label for="fm">Message</label>
+            <textarea id="fm" name="message" placeholder="Tell me about your idea or drop a hello..." required></textarea>
+          </div>
+          <button type="submit" class="fsub">Send Message →</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ▌FOOTER ▌-->
+<footer>
+  <div class="f-in">
+    <div class="f-logo">{{ d.name.split()[0] }}<span>.</span></div>
+    <ul class="f-nav">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <p class="f-copy">
+      Built with <span>♥</span> using Python · Flask · HTML · CSS &nbsp;·&nbsp;
+      {{ d.name }} © 2026–present
+    </p>
+  </div>
+</footer>
+
+
+<!-- ▌MOBILE BOTTOM NAV ▌-->
+<nav class="mob-nav" aria-label="Mobile navigation">
+  <ul>
+    <li><a href="#home"><span class="mni">🏠</span>Home</a></li>
+    <li><a href="#about"><span class="mni">👤</span>About</a></li>
+    <li><a href="#projects"><span class="mni">🚀</span>Projects</a></li>
+    <li><a href="#skills"><span class="mni">⚡</span>Skills</a></li>
+    <li><a href="#contact"><span class="mni">✉</span>Contact</a></li>
+  </ul>
+</nav>
+
+</body>
+</html>
