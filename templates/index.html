@@ -43,7 +43,7 @@
 <!-- ▌HERO ▌-->
 <section id="home">
   <div class="wrap">
-    <div class="hero">
+    <div class="hero"><div class="h">
 
       <div class="badge">
         <span class="dot"></span>
@@ -69,12 +69,11 @@
 
       <div class="scroll-hint">
         <span class="sl"></span>Scroll to explore
-      </div>
-
-    </div></div>
-    <div id="photo">
+      </div></div>
+      <div class="hero-photo">
+    <div class="photo-frame">
     <img src="static/p.jpeg" width="300%" height="300%" >
-  </div>
+  </div></div></div></div>
 </section>
 
 
@@ -220,9 +219,10 @@
           <div class="ctitle">{{ c.title }}</div>
           <div class="ciss">{{ c.issuer }}</div>
           <div class="cdate">{{ c.date }}</div>
-          <a href="{{  url_for('static',filename='college_certificates.pdf') }}" target="_blank" rel="noopener" class="clink">
+          <a href="{{ c.link }}" target="_blank" rel="noopener" class="clink">
             View Certificate ↗
           </a>
+          
         </div>
       </div>
       {% endfor %}
@@ -268,7 +268,8 @@
         <div class="flash {% if ok %}f-ok{% else %}f-err{% endif %}">{{ msg }}</div>
         {% endif %}
 
-        <form method="POST" action="/contact">
+        <form method="POST" action="https://formspree.io/f/xlgkagjr">
+          <input type="hidden" name="_next" value="https://formspree.io/f/xlgkagjr" />
           <div class="fr" style="margin-bottom:1rem">
             <div class="fg">
               <label for="fn">Your Name</label>
