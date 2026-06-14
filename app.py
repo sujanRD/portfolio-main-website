@@ -43,7 +43,7 @@ DATA={
             "desc":  (
                 "A portfolio  "
                 "pure HTML + CSS. Features mobile-first design, a working "
-                "contact form, "
+                "contact form,all my works are stored well. "
             ),
             "tech":   [ "HTML", "CSS"],
             "github": "https://github.com/sujanrd14",
@@ -61,18 +61,19 @@ DATA={
                 "also generated my own QR code of project."
             ),
             "tech":   ["Python", "Flask","HTML-CSS"],
-            "github": "https://github.com/sujanrd14",
+            "github": "https://github.com/sujanRD/full-stack-1st-project",
             "live":   "https://full-stack-1st-project-3.onrender.com",
             "status": "Live",
             "year":   2026,
         },
         {
             "id":    3,
-            "icon":  "⚙️",
+            "icon":  "🅿️",
             "title": "python projects",
             "desc":  (
                 "student management system,bus ticket booking,supermarket-billing"
                 "bank-menu-driven system,still more.."
+                "veiw in my github account."
                 
             ),
             "tech":   ["python", "OOP"],
