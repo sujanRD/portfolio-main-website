@@ -102,27 +102,56 @@ nav{
 }
 
 /* ── HERO ──────────────────────────────────────── */
+
 #home{
   min-height:calc(100vh - 56px);
   display:flex;align-items:center;
-  justify-content: space-between;
-  justify-content: center;
+  justify-content:center;
   position:relative;overflow:hidden;padding:4rem 0;
-  margin-left: 4%;
 }
-.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:2.5rem;align-items:center}
+
+#home.wrap{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:2.5rem;
+  align-items:center;
+  position:relative;
+  z-index:1;
+}
+
+.hero{
+  display:flex;
+  flex-direction:column;
+}
+
 .hero-photo{display:flex;justify-content:center}
-.photo-frame{width:100%;max-width:360px;aspect-ratio:1;border-radius:16px;padding:2px;background:linear-gradient(135deg,#6366F1,#22D3EE);box-shadow:0 0 50px rgba(99,102,241,.25)}
-.photo-frame img{width:100%;height:100%;object-fit:cover;border-radius:12px;display:block;background:#141C2E}
+
+.photo-frame{
+  width:100%;
+  max-width:340px;
+  aspect-ratio:1;
+  border-radius:16px;
+  padding:4px;
+  background:linear-gradient(135deg,#6366F1,#22D3EE);
+  box-shadow:0 0 30px rgba(99,102,241,.25);
+}
+
+.photo-frame img{
+  width:100%;height:100%;object-fit:cover;
+  border-radius:12px;display:block;background:#141C2E;
+}
+
 @media(max-width:860px){
-  .hero{grid-template-columns:1fr;gap:2rem;text-align:center}
+  #home.wrap{grid-template-columns:1fr;gap:2rem;text-align:center}
   .hero-photo{order:-1}
   .photo-frame{max-width:220px;margin:0 auto}
   .btns{justify-content:center}
   .scroll-hint{justify-content:center}
 }
-@media(max-width:420px){.photo-frame{max-width:170px}}
 
+@media(max-width:420px){
+  .photo-frame{max-width:170px}
+}
 
 #home::before{
   content:'';position:absolute;inset:0;
@@ -137,7 +166,6 @@ nav{
   background:radial-gradient(circle,rgba(99,102,241,.16) 0%,transparent 70%);
   pointer-events:none;
 }
-.h{position:relative;z-index:1}
 
 /* Pulsing "available" badge */
 .badge{
