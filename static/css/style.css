@@ -420,11 +420,12 @@ footer{
 /* ── MOBILE BOTTOM NAV ─────────────────────────── */
 .mob-nav{
   display:none;
-  position:fixed;bottom:0;left:0;right:0;
+  position:fixed;top:auto;bottom:0;left:0;right:0;
   background:rgba(17,24,39,.96);
   backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   border-top:1px solid var(--border);
   z-index:200;padding:.35rem 0 .55rem;
+  heigth:auto;
 }
 .mob-nav ul{display:flex;justify-content:space-around;list-style:none}
 .mob-nav a{
